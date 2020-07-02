@@ -1,0 +1,220 @@
+{
+  "id": "e7875e5d-61a1-48fd-bfad-11fbc56039b8",
+  "version": "2.0",
+  "name": "hhJobVerySoon",
+  "url": "https://hh.ru",
+  "tests": [{
+    "id": "ecca1007-7e0a-4cdc-a3f5-2aac4729ddf3",
+    "name": "hh1",
+    "commands": [{
+      "id": "e9344f38-a705-4d60-84b9-e61cec0debd6",
+      "comment": "",
+      "command": "open",
+      "target": "/search/vacancy?resume=ba035de7ff0789ef1f0039ed1f4e637479366e&salary=&currency_code=RUR&experience=doesNotMatter&order_by=relevance&search_period=&items_on_page=1&no_magic=true",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "514cef29-90eb-46c6-aae2-fb889b20dce1",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1920x1080",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "34024c0b-9001-4766-b7bd-8d5323d6f259",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Откликнуться",
+      "targets": [
+        ["linkText=Откликнуться", "linkText"],
+        ["css=.vacancy-serp-item:nth-child(1) .HH-VacancyResponseTrigger-Button .bloko-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Откликнуться')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/applicant/vacancy_response?vacancyId=34557316&hhtmSource=vacancy_search_result')]", "xpath:href"],
+        ["xpath=//div[5]/div/span/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Откликнуться')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "84f9bd9e-2447-453a-a9c8-55b02723f799",
+      "comment": "",
+      "command": "store",
+      "target": "true",
+      "targets": [],
+      "value": "!statusOK"
+    }, {
+      "id": "3d68fb75-f8ef-4633-88ac-3a14bc6dbee2",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.bloko-toggle__expandable-reverse > .bloko-link-switch",
+      "targets": [
+        ["css=.bloko-toggle__expandable-reverse > .bloko-link-switch", "css:finder"],
+        ["xpath=//div[2]/span/span", "xpath:position"]
+      ],
+      "value": "Сопроводительное письмо"
+    }, {
+      "id": "16c03293-ccf0-40ca-9766-cee3f5c53d68",
+      "comment": "",
+      "command": "if",
+      "target": "${!statusOK} == true",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "81cef9cb-a1c1-4701-abb0-44d4d331ec14",
+      "comment": "",
+      "command": "//verifyText",
+      "target": "css=.test__required-message",
+      "targets": [],
+      "value": "Необходимо ответить на все вопросы работодателя."
+    }, {
+      "id": "49f0fc47-07b7-4716-97fd-e05b91e6b976",
+      "comment": "",
+      "command": "//storeText",
+      "target": "css=.test__required-message",
+      "targets": [],
+      "value": "v1"
+    }, {
+      "id": "643b3293-7c16-4f06-8b70-db5e503db74a",
+      "comment": "",
+      "command": "//if",
+      "target": "v1 = \"Необходимо ответить на все вопросы работодателя.\"",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c4ce8a65-a73a-4fcd-80c4-4f40d774c8ff",
+      "comment": "",
+      "command": "//click",
+      "target": "linkText=Вернуться к вакансии",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "319f39b1-19a6-4152-bc6f-cdda79e028eb",
+      "comment": "",
+      "command": "//click",
+      "target": "css=.HH-BlacklistChangeState-AddToBlacklist",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6901ed98-275e-47aa-ab7f-af32afcf0f7a",
+      "comment": "",
+      "command": "//click",
+      "target": "css=.HH-BlacklistChangeState-AddVacancy",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "08696695-d49c-4e42-9758-f9c900563fa0",
+      "comment": "",
+      "command": "//click",
+      "target": "css=.bloko-button_icon-only:nth-child(1)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d8f1aaa8-f27f-4ec2-b327-3de63ed02dbe",
+      "comment": "",
+      "command": "//elseIf",
+      "target": "v1 != \"Необходимо ответить на все вопросы работодателя.\"",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7684cc2c-c3ed-42c2-aad9-34b5281e2b33",
+      "comment": "",
+      "command": "//verifyText",
+      "target": "css=.vacancy-response-popup-wrapper",
+      "targets": [],
+      "value": "Необходимо ответить на все вопросы работодателя."
+    }, {
+      "id": "b24a8d4c-9051-4d71-b3cd-2cf4a4d54fd1",
+      "comment": "",
+      "command": "//storeText",
+      "target": "css=.vacancy-response-popup-wrapper",
+      "targets": [],
+      "value": "v1"
+    }, {
+      "id": "ab4072f2-b13a-4f48-b624-1c3a703e9b46",
+      "comment": "",
+      "command": "//if",
+      "target": "v1 = \"Необходимо ответить на все вопросы работодателя.\"",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "51694b57-9b22-42da-8e4c-e8332abb2f0e",
+      "comment": "",
+      "command": "//end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "37cbd1d1-1777-45b2-bef7-5f3ff27367f6",
+      "comment": "",
+      "command": "//click",
+      "target": "css=.bloko-modal-close-button",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a18c08b7-0b72-4fce-a78f-9f406ed260dc",
+      "comment": "",
+      "command": "//click",
+      "target": "css=.HH-BlacklistChangeState-AddToBlacklist > .bloko-link",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6931b05f-c719-4673-b684-b80548799e78",
+      "comment": "",
+      "command": "//click",
+      "target": "css=.HH-BlacklistChangeState-AddVacancy",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a14f34ac-c867-4492-a5ce-5257337a43ca",
+      "comment": "",
+      "command": "//end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7b5a448c-d6b7-46a6-8584-3434f2145212",
+      "comment": "",
+      "command": "//end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4665858e-0a75-4116-9db6-d3e4a1724c8e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.bloko-toggle__expandable-reverse > .bloko-link-switch",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6ac52952-2232-467e-af84-79d2e3e7998b",
+      "comment": "",
+      "command": "type",
+      "target": "name=letter",
+      "targets": [],
+      "value": "Добрый день! Благодаря опыту более 2 лет в участия в различных проектах я получил навыки разработки ПО и сервисов. Имею опыт разработки с 0 прикладного устройства, в том числе 3D моделирования, разработки ПО и тестирования. Обладаю навыками html вёрстки, в том числе адаптивной. Моим приоритетом является дальнейшее развитие в ИТ-отрасли, с возможностью применить полученные знания и навыки, а также перспективой повышения уровня профессионализма. Буду благодарен за рассмотрение моей кандидатуры и признателен за отклик и приглашение на интервью в удобное для Вас время."
+    }, {
+      "id": "bb078bf3-0733-439d-afe9-7beccf3173bd",
+      "comment": "",
+      "command": "//click",
+      "target": "css=.bloko-button__content",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e4f82541-e876-473a-8405-489f3bd21d3a",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "3a9e96c1-081e-401d-a703-b1131c420dd5",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["ecca1007-7e0a-4cdc-a3f5-2aac4729ddf3"]
+  }],
+  "urls": ["https://hh.ru/"],
+  "plugins": []
+}
