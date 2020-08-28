@@ -1,0 +1,90 @@
+<?php
+
+/**
+ * A helper class to log and get the Zvonobot webhook request
+ */
+class webhookTest {
+
+    /**
+     * Log a message to a file
+     *
+     * @param  mixed $message
+     * @param  string $type [info|error|request]
+     */
+    public function log($message, $type = 'info')
+    {
+        $prefix = 'webhookLog_';
+        $file = $type . '.log';
+        $date = new DateTime();
+        error_log($date->format('Y-m-d H:i:s') . ' ' . $message . "\n\n", 3, $prefix . $file);
+    }
+
+    /**
+     * Get the request JSON object and log the request
+     *
+     * @return object
+     */
+    public function getRequest()
+    {
+        $rawData = file_get_contents("php://input");
+        //$headers = apache_request_headers();
+        //$this->log(print_r($headers, true), 'headers');
+        $this->log($rawData, 'request');
+        return json_decode($rawData);
+    }
+    
+    
+    public function sendData()
+    {
+        
+        $rawData = file_get_contents("php://input");
+        $json = json_decode($rawData, true);
+    
+        $phone = $json['call']['phone'];
+        $answer = $json['call']['answer'];
+        $apicallId = $json['call']['apicallId'];
+        
+        // API URL
+        $url = '//crm.lead.add';
+        //$url = 'https://webhook.site/1f61ae30-06e2-453a-b90a-3b9fe4c37900';
+        
+        // Create a new cURL resource
+        $ch = curl_init($url);
+        
+        // Setup request to send json via POST
+        $data = array( 
+    
+        "TITLE" => $phone, 
+        "COMMENTS"  => $answer,
+		"UTM_CAMPAIGN"  => $apicallId
+        
+        );
+        $params = array(
+        "REGISTER_SONET_EVENT"=> "Y"
+        );
+        $payload = json_encode(array("fields" => $data, "params"=>$params));
+        //$payload = json_encode(array($data));
+        
+        // Attach encoded JSON string to the POST fields
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+        
+        // Set the content type to application/json
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+        
+        // Return response instead of outputting
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        
+        // Execute the POST request
+        $result = curl_exec($ch);
+        
+        // Close cURL resource
+        curl_close($ch);
+        
+    }
+    
+}
+
+$webhook = new webhookTest;
+$requestData = $webhook->getRequest();
+$sendData = $webhook->sendData();
+// @todo Process the $requestData as needed
