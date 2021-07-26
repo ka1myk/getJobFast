@@ -1,0 +1,321 @@
+{
+  "id": "7573543c-17ba-4e66-98c0-a33bed380a24",
+  "version": "2.0",
+  "name": "hh_new",
+  "url": "https://hh.ru/",
+  "tests": [{
+    "id": "5f89e0fa-b2b3-41e2-811d-e819302b066c",
+    "name": "hh_1",
+    "commands": [{
+      "id": "e860ab21-7773-4f62-af51-1986761ac99a",
+      "comment": "",
+      "command": "open",
+      "target": "https://hh.ru/search/vacancy?st=searchVacancy&text=%22%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0+%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6%22&search_field=name&area=1&salary=&currency_code=RUR&experience=doesNotMatter&order_by=relevance&search_period=0&no_magic=true&L_save_area=true&items_on_page=1&page=222",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "85acfd17-8b63-41bd-a5d1-c16b1f8e8e02",
+      "comment": "",
+      "command": "times",
+      "target": "2000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "056e5958-b5f2-4d9c-b2e4-bc37b457fe7c",
+      "comment": "",
+      "command": "storeText",
+      "target": "css=.vacancy-serp-item__controls-item_response",
+      "targets": [
+        ["css=.vacancy-serp-item__controls-item_response", "css:finder"],
+        ["xpath=//div[3]/div/div/div/div[7]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Вы откликнулись')]", "xpath:innerText"]
+      ],
+      "value": "a"
+    }, {
+      "id": "e7461471-b32e-4824-82cd-0f8f15b512fb",
+      "comment": "",
+      "command": "//echo",
+      "target": "${a}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8570310c-61fe-4119-8f2c-aea2fe8ee483",
+      "comment": "",
+      "command": "if",
+      "target": "${a} == \"Откликнуться\"",
+      "targets": [
+        ["linkText=Вам отказали", "linkText"],
+        ["css=.search-resume-item-label", "css:finder"],
+        ["xpath=//a[contains(text(),'Вам отказали')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/negotiations/gotopic?vacancy_id=41094013')]", "xpath:href"],
+        ["xpath=//div[6]/span/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Вам отказали')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3b8bc097-0727-4869-9bb2-23616c42c767",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//*[text()='Откликнуться']",
+      "targets": [
+        ["linkText=Откликнуться", "linkText"],
+        ["css=.vacancy-serp-item:nth-child(2) .vacancy-serp-item__controls-item_response > .bloko-link", "css:finder"],
+        ["xpath=(//a[contains(text(),'Откликнуться')])[2]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/applicant/vacancy_response?vacancyId=39846025&hhtmFrom=vacancy_search_result')]", "xpath:href"],
+        ["xpath=//div[2]/div[6]/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "46cc01c9-dbe4-4760-92c9-2b9cfb39b484",
+      "comment": "",
+      "command": "storeText",
+      "target": "css=.bloko-link-switch:nth-child(3)",
+      "targets": [
+        ["css=.bloko-link-switch:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='HH-React-Root']/div/div/div[3]/div[2]/div/div[3]/div/div/div[4]/div/div[2]/span", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Приложить сопроводительное письмо')]", "xpath:innerText"]
+      ],
+      "value": "b"
+    }, {
+      "id": "8331ef1d-8284-4e8d-b97d-1911db3f5141",
+      "comment": "",
+      "command": "//echo",
+      "target": "${b}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c0d47a92-a349-499d-9d16-61fde289b419",
+      "comment": "",
+      "command": "if",
+      "target": "${b} == \"Отправить отклик на вакансию Пропустить тесты\"",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "07caa712-96bb-4117-9a96-9591a024bed7",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//*[text()='Вернуться к вакансии']",
+      "targets": [
+        ["linkText=Вернуться к вакансии", "linkText"],
+        ["css=.bloko-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Вернуться к вакансии')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/vacancy/41048095')]", "xpath:href"],
+        ["xpath=//nav/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Вернуться к вакансии')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1a0dbaf9-ebcd-4f81-a746-f4f0f1eb02e7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.bloko-icon_ban",
+      "targets": [
+        ["css=.bloko-icon_ban", "css:finder"],
+        ["xpath=//div[@id='HH-React-Root']/div/div/div/div/div/div/div[3]/div/div/div/div/div/span[2]/span/button/span/span", "xpath:idRelative"],
+        ["xpath=//span[2]/span/button/span/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "27b3a3ec-f85c-4d05-94c7-9380c0c49a0a",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//*[text()='Эту вакансию']",
+      "targets": [
+        ["linkText=Эту вакансию", "linkText"],
+        ["css=.bloko-drop-menu-item:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Эту вакансию')]", "xpath:link"],
+        ["xpath=//div[12]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Эту вакансию')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d6ab402e-fcf0-423e-aa5e-b22e401c2b63",
+      "comment": "",
+      "command": "click",
+      "target": "css=.bloko-button__icon > .bloko-icon_favorite",
+      "targets": [
+        ["css=.bloko-button__icon > .bloko-icon_favorite", "css:finder"],
+        ["xpath=//div[@id='HH-React-Root']/div/div/div/div/div/div/div[3]/div/div/div/div/div/span/span/button/span/span", "xpath:idRelative"],
+        ["xpath=//span/span/button/span/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "05a09f22-566b-4d86-a2f6-005687e742ef",
+      "comment": "",
+      "command": "executeScript",
+      "target": "window.history.go(-2)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4042d281-4785-4055-b511-9ad8e8488627",
+      "comment": "",
+      "command": "else",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c861e1df-cc3e-4ff4-9694-6b038aa58d5b",
+      "comment": "",
+      "command": "//storeText",
+      "target": "css=.bloko-modal-header:nth-child(4) > .bloko-modal-title",
+      "targets": [],
+      "value": "c"
+    }, {
+      "id": "dc4bbb12-2c07-4f8a-b718-02c706c75c2e",
+      "comment": "",
+      "command": "//echo",
+      "target": "${c}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "db43c376-c77c-4631-98d2-5a3c247dc2af",
+      "comment": "",
+      "command": "//if",
+      "target": "${c} == \"Отклик на вакансию\"",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "14525126-47e5-4c7d-92b9-1d8474a6c404",
+      "comment": "",
+      "command": "//type",
+      "target": "name=letter",
+      "targets": [],
+      "value": "Добрый день! Благодаря опыту более трех лет в крупнейшем ритейле Европы и России Decathlon, а также Euromedservice и GetJobFast, получил навыки управлением продажами и организации работы магазина, начиная с планинга, заканчивая интеграцией новых сотрудников.\\n\\n\\nСформировал команду менеджеров (2 менеджера) по психотипу и исполнительности.\\n\\nМоим приоритетом является дальнейшее развитие в управлении продажами и коллективом, с возможностью применить полученные знания и навыки, а также перспективой повышения уровня профессионализма.\\n\\nПодробная информация об образовании и опыте работы содержится в прилагаемом резюме. Благодарю за внимание к моей кандидатуре.\\nС готовностью приму приглашение на собеседование для уточнения конкретных деталей.\\nНадеюсь на положительное решение.\\n\\nС уважением, Ким Андрей Анатольевич\\nПо любым вопросам можно связаться по телефону: +7 (985) 950-63-95"
+    }, {
+      "id": "240a8452-1b67-4df4-ad2b-d37a21152701",
+      "comment": "",
+      "command": "//click",
+      "target": "css=.HH-VacancyResponsePopup-Submit > .bloko-button__content",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "48173dbc-e268-4b31-a647-cb508fbd1026",
+      "comment": "",
+      "command": "//else",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f3b828c0-f73a-440f-aef3-1a1be96ec892",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//*[text()='Приложить сопроводительное письмо']",
+      "targets": [
+        ["css=.vacancy-serp-item:nth-child(32) .bloko-link-switch", "css:finder"],
+        ["xpath=//div[31]/div[7]/div/div[3]/span/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7f55e2d6-061b-409f-9381-5b58955746da",
+      "comment": "",
+      "command": "click",
+      "target": "css=.bloko-textarea",
+      "targets": [
+        ["css=.bloko-textarea", "css:finder"],
+        ["xpath=//textarea[@name='text']", "xpath:attributes"],
+        ["xpath=//div[@id='HH-React-Root']/div/div/div[2]/div[2]/div/div[3]/div/div/div[4]/div/div[2]/form/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "543a833b-3b78-4995-a075-cd7de16a24a4",
+      "comment": "",
+      "command": "type",
+      "target": "css=.bloko-textarea",
+      "targets": [
+        ["css=.bloko-textarea", "css:finder"],
+        ["xpath=//textarea[@name='text']", "xpath:attributes"],
+        ["xpath=//div[@id='HH-React-Root']/div/div/div[2]/div[2]/div/div[3]/div/div/div[4]/div/div[2]/form/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Добрый день! Благодаря опыту более трех лет в крупнейшем ритейле Европы и России Decathlon, а также Euromedservice и GetJobFast, получил навыки управлением продажами и организации работы магазина, начиная с планинга, заканчивая интеграцией новых сотрудников.\\n\\n\\nСформировал команду менеджеров (2 менеджера) по психотипу и исполнительности.\\n\\nМоим приоритетом является дальнейшее развитие в управлении продажами и коллективом, с возможностью применить полученные знания и навыки, а также перспективой повышения уровня профессионализма.\\n\\nПодробная информация об образовании и опыте работы содержится в прилагаемом резюме. Благодарю за внимание к моей кандидатуре.\\nС готовностью приму приглашение на собеседование для уточнения конкретных деталей.\\nНадеюсь на положительное решение.\\n\\nС уважением, Ким Андрей Анатольевич\\nПо любым вопросам можно связаться по телефону: +7 (985) 950-63-95"
+    }, {
+      "id": "d65d0f9a-0076-4f87-b5bd-a7ca5dba0fcb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.bloko-form-row > .bloko-button",
+      "targets": [
+        ["css=.bloko-form-row > .bloko-button", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='HH-React-Root']/div/div/div[2]/div[2]/div/div[3]/div/div/div[4]/div/div[2]/form/div/button", "xpath:idRelative"],
+        ["xpath=//form/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Отправить')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ee32bd06-1232-4475-896e-e1dba1700142",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//*[text()='дальше']",
+      "targets": [
+        ["linkText=дальше", "linkText"],
+        ["css=.HH-Pager-Controls-Next", "css:finder"],
+        ["xpath=//a[contains(text(),'дальше')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/search/vacancy?L_is_autosearch=false&area=1&clusters=true&employment=full&enable_snippets=true&items_on_page=1&no_magic=true&schedule=fullDay&search_field=name&specialization=17.242&specialization=13.227&specialization=9.226&specialization=24.380&specialization=1.225&text=%D0%9C%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80&page=2')])[2]", "xpath:href"],
+        ["xpath=//div[2]/div/div[6]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'дальше')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fc683d66-a480-49bc-862e-91556a9c4cee",
+      "comment": "",
+      "command": "//end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c3b826e3-6e96-413b-8aed-18b29cdbca76",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0571bf38-fdc5-44eb-8f22-25c5526a0305",
+      "comment": "",
+      "command": "else",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "90ab0fbb-a0b6-4aaf-90ec-265af3066c1c",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//*[text()='дальше']",
+      "targets": [
+        ["linkText=дальше", "linkText"],
+        ["css=.HH-Pager-Controls-Next", "css:finder"],
+        ["xpath=//a[contains(text(),'дальше')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/search/vacancy?L_is_autosearch=false&area=1&clusters=true&employment=full&enable_snippets=true&items_on_page=1&no_magic=true&schedule=fullDay&search_field=name&specialization=17.242&specialization=13.227&specialization=9.226&specialization=24.380&specialization=1.225&text=%D0%9C%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80&page=2')])[2]", "xpath:href"],
+        ["xpath=//div[2]/div/div[6]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'дальше')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f26d1cb4-946d-4a21-b100-08273be4a831",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e47a787e-0735-4dd3-a944-e1a16b4d2eea",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "80a7142e-dee6-449d-80e2-a27e8328b4a0",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 10,
+    "tests": ["5f89e0fa-b2b3-41e2-811d-e819302b066c"]
+  }],
+  "urls": ["https://hh.ru/"],
+  "plugins": []
+}
